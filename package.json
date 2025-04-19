@@ -1,0 +1,37 @@
+{
+  "name": "air-quality",
+  "version": "1.0.0",
+  "description": "air quality apis",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "test": "env-cmd -f ./config/test.env jest --runInBand",
+    "test:watch": "env-cmd -f ./config/test.env jest --watch --runInBand",
+    "prepare:dev": "husky install"
+  },
+  "author": "Mohab Abd El-Dayem <mohab.m.mohamed@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-validator": "^7.2.1"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.1",
+    "nodemon": "^3.1.9",
+    "prettier-standard": "^16.4.1"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier-standard",
+      "git add"
+    ]
+  }
+}
