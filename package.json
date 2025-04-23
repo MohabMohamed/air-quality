@@ -8,7 +8,9 @@
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "test": "env-cmd -f ./config/test.env jest --runInBand",
     "test:watch": "env-cmd -f ./config/test.env jest --watch --runInBand",
-    "prepare:dev": "husky install"
+    "prepare:dev": "husky install",
+    "lint": "eslint .",
+    "format": "prettier --write ."
   },
   "author": "Mohab Abd El-Dayem <mohab.m.mohamed@gmail.com",
   "license": "ISC",
@@ -18,10 +20,14 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
     "husky": "^9.1.7",
     "lint-staged": "^15.5.1",
     "nodemon": "^3.1.9",
-    "prettier-standard": "^16.4.1"
+    "prettier": "^3.5.3",
+    "semistandard": "^17.0.0"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -30,7 +36,8 @@
   },
   "lint-staged": {
     "src/**/*.js": [
-      "prettier-standard",
+      "prettier --write",
+      "semistandard --fix",
       "git add"
     ]
   }
